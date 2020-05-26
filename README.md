@@ -1,2 +1,2 @@
 # A Forest Fairytale
-## A WIP for a game jam
+A WIP entry for a game jam.
