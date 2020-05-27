@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://levels/tileset/terrain_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://mobs/big_mouth/BigMouthMonster.tscn" type="PackedScene" id=3]
 
 [node name="LevelIntro" type="Node"]
 
@@ -14,3 +15,8 @@ tile_data = PoolIntArray( 0, 5, 0, 1, 5, 1, 2, 5, 1, 3, 5, 1, 4, 5, 1, 5, 5, 1, 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 47.0256, -175.193 )
 jump_speed = -600
+
+[node name="Mobs" type="Node" parent="."]
+
+[node name="BigMouthMonster" parent="Mobs" instance=ExtResource( 3 )]
+position = Vector2( 229.305, -275.078 )
