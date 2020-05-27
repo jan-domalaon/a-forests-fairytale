@@ -1,0 +1,30 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=9 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "player_idle"
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "player_jump"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "player_run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=4]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=5]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=6]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=7]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+
+[resource]
+states/player_idle/node = SubResource( 1 )
+states/player_idle/position = Vector2( 375, 233 )
+states/player_jump/node = SubResource( 2 )
+states/player_jump/position = Vector2( 493, 42 )
+states/player_run/node = SubResource( 3 )
+states/player_run/position = Vector2( 804, 226 )
+transitions = [ "player_idle", "player_jump", SubResource( 4 ), "player_idle", "player_run", SubResource( 5 ), "player_run", "player_idle", SubResource( 6 ), "player_run", "player_jump", SubResource( 7 ), "player_jump", "player_idle", SubResource( 8 ) ]
+start_node = "player_idle"

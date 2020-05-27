@@ -9,9 +9,10 @@ export (float, 0, 1.0) var friction = 0.1
 
 var velocity = Vector2.ZERO
 
+var state_machine
 
 func _ready():
-	pass # Replace with function body.
+	state_machine = $AnimationTree.get("parameters/playback")
 
 
 func _physics_process(delta):
