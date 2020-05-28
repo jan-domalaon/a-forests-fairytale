@@ -53,8 +53,6 @@ func spell_cast():
 	state_machine.travel("player_cast")
 	var spell = Projectile.instance()
 	
-	
-	
 	# owner refers to root node that the Player is in (ie level)
 	owner.add_child(spell)
 	
@@ -71,3 +69,6 @@ func spell_cast():
 func flip_player_left(is_left):
 	$SpellMuzzle.set_position(Vector2(-16, 0)) if is_left else $SpellMuzzle.set_position(Vector2(16, 0))
 	$AnimatedSprite.set_flip_h(is_left)
+
+func done_casting():
+	is_casting = false

@@ -13,7 +13,7 @@ extents = Vector2( 10, 18 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=2]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "player_cast"
 length = 0.5
 tracks/0/type = "value"
@@ -40,8 +40,22 @@ tracks/1/keys = {
 "update": 1,
 "values": [ "Cast" ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "done_casting"
+} ]
+}
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:frame")
@@ -80,7 +94,7 @@ Projectile = ExtResource( 7 )
 [node name="AnimatedSprite" parent="." index="0"]
 frames = ExtResource( 2 )
 animation = "Idle"
-frame = 6
+frame = 3
 
 [node name="CollisionShape2D" parent="." index="1" groups=[
 "Player",
@@ -96,9 +110,9 @@ tree_root = ExtResource( 5 )
 parameters/playback = SubResource( 2 )
 
 [node name="AnimationPlayer" parent="." index="4"]
-anims/player_cast = SubResource( 4 )
+anims/player_cast = SubResource( 3 )
 anims/player_idle = ExtResource( 3 )
-anims/player_jump = SubResource( 3 )
+anims/player_jump = SubResource( 4 )
 anims/player_run = ExtResource( 4 )
 
 [node name="SpellMuzzle" type="Position2D" parent="." index="5"]

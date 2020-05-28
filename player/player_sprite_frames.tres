@@ -98,60 +98,60 @@ atlas = ExtResource( 2 )
 region = Rect2( 120, 0, 20, 36 )
 
 [sub_resource type="AtlasTexture" id=24]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 20, 36 )
 
 [sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 1 )
 region = Rect2( 20, 0, 20, 36 )
 
 [sub_resource type="AtlasTexture" id=26]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 20, 36 )
+region = Rect2( 40, 0, 20, 36 )
 
 [sub_resource type="AtlasTexture" id=27]
 atlas = ExtResource( 1 )
-region = Rect2( 20, 0, 20, 36 )
+region = Rect2( 60, 0, 20, 36 )
 
 [sub_resource type="AtlasTexture" id=28]
 atlas = ExtResource( 1 )
-region = Rect2( 40, 0, 20, 36 )
+region = Rect2( 80, 0, 20, 36 )
 
 [sub_resource type="AtlasTexture" id=29]
 atlas = ExtResource( 1 )
-region = Rect2( 60, 0, 20, 36 )
+region = Rect2( 100, 0, 20, 36 )
 
 [sub_resource type="AtlasTexture" id=30]
 atlas = ExtResource( 1 )
-region = Rect2( 80, 0, 20, 36 )
+region = Rect2( 120, 0, 20, 36 )
 
 [sub_resource type="AtlasTexture" id=31]
 atlas = ExtResource( 1 )
-region = Rect2( 100, 0, 20, 36 )
+region = Rect2( 140, 0, 20, 36 )
 
 [sub_resource type="AtlasTexture" id=32]
 atlas = ExtResource( 1 )
-region = Rect2( 120, 0, 20, 36 )
+region = Rect2( 160, 0, 20, 36 )
 
 [sub_resource type="AtlasTexture" id=33]
 atlas = ExtResource( 1 )
-region = Rect2( 140, 0, 20, 36 )
+region = Rect2( 180, 0, 20, 36 )
 
 [sub_resource type="AtlasTexture" id=34]
 atlas = ExtResource( 1 )
-region = Rect2( 160, 0, 20, 36 )
+region = Rect2( 200, 0, 20, 36 )
 
 [sub_resource type="AtlasTexture" id=35]
 atlas = ExtResource( 1 )
-region = Rect2( 180, 0, 20, 36 )
+region = Rect2( 220, 0, 20, 36 )
 
 [sub_resource type="AtlasTexture" id=36]
-atlas = ExtResource( 1 )
-region = Rect2( 200, 0, 20, 36 )
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 20, 36 )
 
 [sub_resource type="AtlasTexture" id=37]
-atlas = ExtResource( 1 )
-region = Rect2( 220, 0, 20, 36 )
+atlas = ExtResource( 3 )
+region = Rect2( 20, 0, 20, 36 )
 
 [resource]
 animations = [ {
@@ -165,13 +165,13 @@ animations = [ {
 "name": "Run",
 "speed": 12.0
 }, {
-"frames": [ SubResource( 24 ), SubResource( 25 ) ],
-"loop": false,
-"name": "Jump",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ) ],
+"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 6.0
+}, {
+"frames": [ SubResource( 36 ), SubResource( 37 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 5.0
 } ]

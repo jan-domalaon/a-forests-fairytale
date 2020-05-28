@@ -23,4 +23,4 @@ func update_healthbar_ui(value):
 	if value < healthbar.max_value * 0.33:
 		healthbar_spritesheet.margin = ONE_THIRD_BAR
 	if value < healthbar.max_value * 0.01:
-		healthbar_spritesheet.margin = EMPTY_BARs
+		healthbar_spritesheet.margin = EMPTY_BAR
