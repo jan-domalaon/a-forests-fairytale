@@ -11,16 +11,19 @@ onready var healthbar = $HealthBar
 
 
 func _ready():
+	# Connect to PlayerUI
+	get_parent().get_owner().connect("update_healthbar_ui", self, "update_healthbar_texture")
+	
 	# Get player's health
 	pass
 
 
-func update_healthbar_ui(value):
-	healthbar.texture_progress = healthbar_spritesheet
-	healthbar_spritesheet.margin = FULL_BAR
-	if value < healthbar.max_value * 0.66:
-		healthbar_spritesheet.margin = TWO_THIRD_BAR
-	if value < healthbar.max_value * 0.33:
-		healthbar_spritesheet.margin = ONE_THIRD_BAR
-	if value < healthbar.max_value * 0.01:
-		healthbar_spritesheet.margin = EMPTY_BAR
+func update_healthbar_texture(current_health, max_health):
+	healthbar.texture = healthbar_spritesheet
+	healthbar_spritesheet.region = FULL_BAR
+	if current_health < max_health * 0.66:
+		healthbar_spritesheet.region = TWO_THIRD_BAR
+	if current_health < max_health * 0.33:
+		healthbar_spritesheet.region = ONE_THIRD_BAR
+	if current_health < max_health * 0.01:
+		healthbar_spritesheet.region = EMPTY_BAR
