@@ -1,0 +1,12 @@
+[gd_scene format=2]
+
+[node name="GenericLevel" type="Node"]
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 1
+
+[node name="PlayerStart" type="Position2D" parent="."]
+
+[node name="Mobs" type="Node" parent="."]
+
+[node name="Traps" type="Node" parent="."]

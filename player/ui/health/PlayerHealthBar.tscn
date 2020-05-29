@@ -6,12 +6,15 @@
 [node name="PlayerHealthBar" type="HBoxContainer"]
 margin_right = 40.0
 margin_bottom = 40.0
+rect_min_size = Vector2( 65, 40 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HealthBar" type="TextureRect" parent="."]
-margin_right = 65.0
-margin_bottom = 40.0
+margin_right = 260.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 260, 80 )
 texture = ExtResource( 1 )
+stretch_mode = 5

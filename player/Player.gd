@@ -10,8 +10,10 @@ func _ready():
 
 
 func _physics_process(delta):
-	input_player()
-	handle_move_animations()
+	# Only allow input if the player is still alive
+	if not is_dead:
+		input_player()
+		handle_move_animations()
 
 
 func input_player():

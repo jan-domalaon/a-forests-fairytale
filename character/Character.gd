@@ -11,6 +11,9 @@ export (float, 0, 1.0) var acceleration = 0.25
 export (float, 0, 1.0) var friction = 0.1
 
 var velocity = Vector2.ZERO
+var is_dead = false
+
+signal update_health(health)
 
 #
 # CHARACTER ANIMATION STATE MACHINE
@@ -30,6 +33,23 @@ func _ready():
 func _physics_process(delta):
 	velocity_movement(delta)
 
+
 func velocity_movement(delta):
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
+
+
+func get_damaged(hp_damage):
+	if health - hp_damage <= 0:
+		is_dead = true
+		health = 0
+		# TODO: Add a death condition for player and mob
+		if is_in_group("Player"):
+			pass
+		elif is_in_group("Mob"):
+			pass
+		print(get_name() + " has died!")
+	else:
+		health -= hp_damage
+		emit_signal("update_health", health)
+		# TODO: Flicker effect

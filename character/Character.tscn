@@ -9,7 +9,9 @@ extents = Vector2( 8, 8 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=3]
 
-[node name="Character" type="KinematicBody2D"]
+[node name="Character" type="KinematicBody2D" groups=[
+"Character",
+]]
 script = ExtResource( 1 )
 jump_speed = -1000
 
