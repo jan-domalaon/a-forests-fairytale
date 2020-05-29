@@ -16,6 +16,8 @@ tile_data = PoolIntArray( -655377, 5, 1, -655376, 5, 1, -655375, 5, 1, -655374, 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 47.0256, -175.193 )
 jump_speed = -600
+max_health = 5
+health = 5
 
 [node name="Mobs" type="Node" parent="."]
 
@@ -23,9 +25,6 @@ jump_speed = -600
 position = Vector2( 229.305, -275.078 )
 
 [node name="Traps" type="Node" parent="."]
-
-[node name="Spike" parent="Traps" instance=ExtResource( 4 )]
-position = Vector2( 280, 56 )
 
 [node name="Spike2" parent="Traps" instance=ExtResource( 4 )]
 position = Vector2( 296, 56 )

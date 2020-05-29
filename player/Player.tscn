@@ -95,7 +95,7 @@ Projectile = ExtResource( 7 )
 [node name="AnimatedSprite" parent="." index="0"]
 frames = ExtResource( 2 )
 animation = "Idle"
-frame = 6
+frame = 10
 
 [node name="CollisionShape2D" parent="." index="1" groups=[
 "Player",

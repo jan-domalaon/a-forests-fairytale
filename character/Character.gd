@@ -13,6 +13,8 @@ export (float, 0, 1.0) var friction = 0.1
 var velocity = Vector2.ZERO
 var is_dead = false
 
+var invincible = false
+
 signal update_health(health, max_health)
 
 #
@@ -42,22 +44,30 @@ func velocity_movement(delta):
 
 
 func get_damaged(hp_damage):
-	if health - hp_damage <= 0:
-		toggle_dead_stats()
-		
-		# TODO: Add a death condition for player and mob
-		if is_in_group("Player"):
-			pass
-		elif is_in_group("Mob"):
-			pass
-		print(get_name() + " has died!")
-	else:
-		health -= hp_damage
-		emit_signal("update_health", health)
-		# TODO: Flicker effect
+	# Only get damaged if not invincible
+	if not invincible:
+		if health - hp_damage <= 0:
+			toggle_dead_state()
+			
+			# TODO: Add a death condition for player and mob
+			if is_in_group("Player"):
+				pass
+			elif is_in_group("Mob"):
+				pass
+			print(get_name() + " has died!")
+		else:
+			health -= hp_damage
+			emit_signal("update_health", health, max_health)
+			
+			# Play flicker
+			$AnimationPlayer.play("flicker")
 
 
-func toggle_dead_stats():
+func toggle_dead_state():
 	is_dead = true
 	health = 0
 	emit_signal("update_health", health, max_health)
+
+
+func toggle_invincibility():
+	invincible = not invincible
