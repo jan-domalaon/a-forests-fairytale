@@ -20,7 +20,7 @@ signal update_health(health, max_health)
 #
 # CHARACTER ANIMATION STATE MACHINE
 #
-var state_machine
+var anim_state_machine
 
 #
 # CHARACTER HEALTH
@@ -31,7 +31,7 @@ export (int) var health = 1
 
 func _ready():
 	health = max_health
-	state_machine = $AnimationTree.get("parameters/playback")
+	anim_state_machine = $AnimationTree.get("parameters/playback")
 
 
 func _physics_process(delta):

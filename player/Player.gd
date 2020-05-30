@@ -52,18 +52,18 @@ func input_player():
 
 func handle_move_animations():
 	if velocity.length() != 0 and not is_casting:
-		state_machine.travel("player_run")
+		anim_state_machine.travel("player_run")
 	if velocity.length() == 0 and not is_casting:
-		state_machine.travel("player_idle")
+		anim_state_machine.travel("player_idle")
 
 
 func handle_jump_animation():
-	state_machine.travel("player_jump")
+	anim_state_machine.travel("player_jump")
 
 
 func spell_cast():
 	is_casting = true
-	state_machine.travel("player_cast")
+	anim_state_machine.travel("player_cast")
 	var spell = Projectile.instance()
 	
 	# owner refers to root node that the Player is in (ie level)

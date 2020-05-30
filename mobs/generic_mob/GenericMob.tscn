@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://mobs/generic_mob/anim/GenericMobSpriteFrames.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://mobs/generic_mob/GenericMob.gd" type="Script" id=3]
+[ext_resource path="res://mobs/generic_mob/MobFSM.gd" type="Script" id=4]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
@@ -17,8 +18,11 @@ jump_speed = -600
 ]]
 frames = ExtResource( 2 )
 animation = "Idle"
-frame = 18
+frame = 11
 playing = true
 
 [node name="AnimationTree" parent="." index="2"]
 parameters/playback = SubResource( 1 )
+
+[node name="StateMachine" parent="." index="4"]
+script = ExtResource( 4 )
