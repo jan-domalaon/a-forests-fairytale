@@ -1,30 +1,26 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://levels/tileset/terrain_tileset.tres" type="TileSet" id=1]
-[ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://mobs/big_mouth/BigMouthMonster.tscn" type="PackedScene" id=3]
-[ext_resource path="res://levels/traps/spike/Spike.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/generic_level/GenericLevel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=3]
 
-[node name="LevelIntro" type="Node"]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="GenericLevel" instance=ExtResource( 2 )]
+background_color = Color( 0.0901961, 0.117647, 0.298039, 1 )
+
+[node name="TileMap" parent="." index="0"]
 tile_set = ExtResource( 1 )
-cell_size = Vector2( 16, 16 )
-format = 1
-tile_data = PoolIntArray( -655377, 5, 1, -655376, 5, 1, -655375, 5, 1, -655374, 5, 1, -655373, 5, 1, -655372, 5, 1, -655371, 5, 1, -655370, 5, 1, -655369, 5, 1, -655368, 5, 1, -655367, 5, 1, -655366, 5, 1, -655365, 5, 1, -655364, 5, 1, -655363, 5, 1, -655362, 5, 1, -589841, 5, 65539, -524305, 5, 65539, -458769, 5, 65539, -393233, 5, 65539, -327697, 5, 65539, -262161, 5, 65539, -196625, 5, 65539, -131089, 5, 65539, -65553, 5, 65539, -17, 5, 65539, 65519, 5, 1, 65520, 5, 1, 65521, 5, 1, 65522, 5, 1, 65523, 5, 1, 65524, 5, 1, 65525, 5, 1, 65526, 5, 1, 65527, 5, 1, 65528, 5, 1, 65529, 5, 1, 65530, 5, 1, 65531, 5, 1, 65532, 5, 1, 65533, 5, 1, 65534, 5, 1, 65535, 5, 1, 0, 5, 1, 1, 5, 1, 2, 5, 1, 3, 5, 1, 4, 5, 1, 5, 5, 1, 6, 5, 1, 7, 5, 1, 8, 5, 2, 12, 5, 0, 13, 5, 1, 14, 5, 1, 15, 5, 1, 16, 5, 1, 28, 5, 3, 65536, 5, 131072, 65537, 5, 131080, 65538, 5, 65537, 65539, 5, 65537, 65540, 5, 65537, 65541, 5, 65537, 65542, 5, 8, 65543, 5, 131073, 65544, 5, 131074, 65547, 5, 0, 65548, 5, 65543, 65549, 5, 8, 65550, 5, 131073, 65551, 5, 1, 65564, 5, 65539, 131073, 5, 131072, 131074, 5, 131073, 131075, 5, 131073, 131076, 5, 131073, 131077, 5, 131073, 131078, 5, 131074, 131083, 5, 131072, 131084, 5, 131073, 131085, 5, 131074, 131087, 5, 65539, 131100, 5, 65539, 196623, 5, 65539, 196636, 5, 65539, 262159, 5, 1, 262160, 5, 1, 262161, 5, 1, 262162, 5, 1, 262163, 5, 1, 262164, 5, 1, 262165, 5, 1, 262166, 5, 1, 262167, 5, 1, 262168, 5, 1, 262169, 5, 1, 262170, 5, 1, 262171, 5, 1, 262172, 5, 1 )
+tile_data = PoolIntArray( -262144, 6, 0, -196608, 6, 0, -131072, 6, 0, -65536, 6, 0, 0, 6, 0, 65536, 6, 0, 131072, 6, 0, 196608, 6, 0, 262144, 6, 0, 327680, 6, 0, 393216, 6, 0, 458752, 6, 0, 524288, 6, 0, 589824, 6, 0, 655360, 5, 1, 655361, 5, 1, 655362, 5, 1, 655363, 5, 1, 655364, 5, 1, 655365, 5, 1, 655366, 5, 1, 655367, 5, 1, 655368, 5, 1, 655369, 5, 1, 655370, 5, 1, 655371, 5, 1, 655372, 5, 1, 655373, 5, 1, 655374, 5, 1, 655375, 5, 1, 655376, 5, 1, 655377, 5, 1, 655378, 5, 1, 655379, 5, 1, 655380, 5, 1, 655381, 5, 1, 655382, 5, 1, 655383, 5, 1, 655384, 5, 1, 655385, 5, 1, 655386, 5, 1, 655387, 5, 1, 655388, 5, 1, 655389, 5, 1, 655390, 5, 1, 655391, 5, 1, 655392, 5, 1 )
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 47.0256, -175.193 )
-jump_speed = -600
-max_health = 5
-health = 5
+[node name="Player" parent="." index="4" instance=ExtResource( 3 )]
+position = Vector2( 112, 0 )
+camera_limit_left = 0
 
-[node name="Mobs" type="Node" parent="."]
+[node name="AnimatedSprite" parent="Player" index="0"]
+frame = 9
 
-[node name="BigMouthMonster" parent="Mobs" instance=ExtResource( 3 )]
-position = Vector2( 229.305, -275.078 )
+[node name="AnimationTree" parent="Player" index="3"]
+parameters/playback = SubResource( 1 )
 
-[node name="Traps" type="Node" parent="."]
-
-[node name="Spike2" parent="Traps" instance=ExtResource( 4 )]
-position = Vector2( 296, 56 )
+[editable path="Player"]

@@ -1,11 +1,22 @@
 extends "res://character/Character.gd"
 
+
+# Limits of camera
+export (int) var camera_limit_left 			= -10000000
+export (int) var camera_limit_top 			= -10000000
+export (int) var camera_limit_right 		= 10000000
+export (int) var camera_limit_bottom 		= 10000000
+
 # Player can cast projectiles
 export (PackedScene) var Projectile
 var is_casting = false
 
 
 func _ready():
+	# Set camera limits
+	set_camera_limits(camera_limit_left, camera_limit_top,
+						camera_limit_right, camera_limit_bottom)
+	
 	pass # Replace with function body.
 
 
@@ -74,3 +85,10 @@ func flip_player_left(is_left):
 
 func done_casting():
 	is_casting = false
+
+
+func set_camera_limits(left, top, right, bottom):
+	$Camera2D.limit_left 	= left
+	$Camera2D.limit_top 	= top
+	$Camera2D.limit_right 	= right
+	$Camera2D.limit_bottom 	= bottom
