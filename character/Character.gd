@@ -35,12 +35,16 @@ func _ready():
 
 
 func _physics_process(delta):
-	velocity_movement(delta)
+	apply_gravity(delta)
+	apply_movement()
 
 
-func velocity_movement(delta):
-	velocity.y += gravity * delta
+func apply_movement():
 	velocity = move_and_slide(velocity, Vector2.UP)
+
+
+func apply_gravity(delta):
+	velocity.y += gravity * delta
 
 
 func get_damaged(hp_damage):

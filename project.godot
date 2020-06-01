@@ -22,6 +22,7 @@ _global_script_class_icons={
 
 config/name="A Forest Fairytale"
 config/description="For UTSC's Game Jam Summer Series (1 of 3)"
+run/main_scene="res://levels/intro/LevelIntro.tscn"
 config/icon="res://icon.png"
 
 [display]

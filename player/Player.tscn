@@ -56,6 +56,18 @@ tracks/2/keys = {
 "method": "done_casting"
 } ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimatedSprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=4]
 length = 0.3
@@ -83,6 +95,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [ "Jump" ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
 
 [node name="Player" groups=[
 "Player",
@@ -90,13 +114,14 @@ tracks/1/keys = {
 script = ExtResource( 6 )
 gravity = 1000
 friction = 1.0
+max_health = 3
 health = 3
 Projectile = ExtResource( 7 )
 
 [node name="AnimatedSprite" parent="." index="0"]
 frames = ExtResource( 2 )
 animation = "Idle"
-frame = 8
+frame = 4
 
 [node name="CollisionShape2D" parent="." index="1" groups=[
 "Player",
@@ -126,3 +151,7 @@ position = Vector2( 11, 0 )
 
 [node name="StateMachine" parent="." index="7"]
 script = ExtResource( 9 )
+
+[node name="ActionStateMachine" type="Node" parent="." index="8"]
+
+[node name="AttackTimer" type="Timer" parent="." index="9"]

@@ -20,14 +20,14 @@ func _ready():
 	pass # Replace with function body.
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Only allow input if the player is still alive
 	if not is_dead:
-		input_player()
+		handle_input_player()
 		handle_move_animations()
 
 
-func input_player():
+func handle_input_player():
 	var dir = 0
 	if Input.is_action_pressed("move_right"):
 		dir += 1
@@ -35,17 +35,17 @@ func input_player():
 	if Input.is_action_pressed("move_left"):
 		dir -= 1
 		flip_player_left(true)
-		
+
 	if dir != 0:
 		velocity.x = lerp(velocity.x, dir * move_speed, acceleration)
 	else:
 		velocity.x = lerp(velocity.x, 0, friction)
-	
+
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			handle_jump_animation()
 			velocity.y = jump_speed
-	
+
 	if Input.is_action_just_pressed("spell_cast"):
 		spell_cast()
 
