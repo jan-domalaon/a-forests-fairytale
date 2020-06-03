@@ -9,7 +9,6 @@ background_color = Color( 0.0901961, 0.117647, 0.298039, 1 )
 
 [node name="Player" parent="." index="0" instance=ExtResource( 3 )]
 position = Vector2( 112, 0 )
-jump_speed = -500
 camera_limit_left = 0
 camera_limit_right = 3648
 camera_limit_bottom = 300

@@ -112,6 +112,7 @@ tracks/2/keys = {
 "Player",
 ] instance=ExtResource( 1 )]
 script = ExtResource( 6 )
+jump_speed = -500
 gravity = 1000
 friction = 1.0
 max_health = 3
@@ -121,7 +122,6 @@ Projectile = ExtResource( 7 )
 [node name="AnimatedSprite" parent="." index="0"]
 frames = ExtResource( 2 )
 animation = "Idle"
-frame = 4
 
 [node name="CollisionShape2D" parent="." index="1" groups=[
 "Player",
