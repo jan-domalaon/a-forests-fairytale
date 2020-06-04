@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="GenericInteractable" type="Area2D" groups=[
+"Interactable",
+]]
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]

@@ -20,3 +20,5 @@ format = 1
 [node name="Mobs" type="Node" parent="."]
 
 [node name="Traps" type="Node" parent="."]
+
+[node name="Interactables" type="Node" parent="."]
