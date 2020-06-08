@@ -10,19 +10,18 @@ export (int) var camera_limit_bottom 		= 10000000
 # Player can cast projectiles
 export (PackedScene) var Projectile
 var is_casting = false
+var is_level_changing = false setget set_is_level_changing
 
 
 func _ready():
 	# Set camera limits
 	set_camera_limits(camera_limit_left, camera_limit_top,
 						camera_limit_right, camera_limit_bottom)
-	
-	pass # Replace with function body.
 
 
 func _physics_process(_delta):
 	# Only allow input if the player is still alive
-	if not is_dead:
+	if not (is_dead or is_level_changing):
 		handle_input_player()
 		handle_move_animations()
 
@@ -48,6 +47,15 @@ func handle_input_player():
 
 	if Input.is_action_just_pressed("spell_cast"):
 		spell_cast()
+	
+	if Input.is_action_just_pressed("interact"):
+		var interactables = $InteractArea.get_overlapping_areas()
+		for interactable in interactables:
+			if interactable.is_in_group('Door'):
+				interactable.open_door()
+			if interactable.is_in_group("LevelChange"):
+				interactable.change_level()
+		print(interactables)
 
 
 func handle_move_animations():
@@ -92,3 +100,7 @@ func set_camera_limits(left, top, right, bottom):
 	$Camera2D.limit_top 	= top
 	$Camera2D.limit_right 	= right
 	$Camera2D.limit_bottom 	= bottom
+
+
+func set_is_level_changing(new_value):
+	is_level_changing = new_value

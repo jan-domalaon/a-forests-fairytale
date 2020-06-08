@@ -1,15 +1,21 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://levels/tileset/terrain_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://levels/generic_level/GenericLevel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://levels/interactables/sign/Sign.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/interactables/door/Door.tscn" type="PackedScene" id=5]
+[ext_resource path="res://levels/interactables/door/door.png" type="Texture" id=6]
 
-[node name="GenericLevel" instance=ExtResource( 2 )]
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 6 )
+region = Rect2( 32, 0, 32, 41 )
+
+[node name="LevelIntro" instance=ExtResource( 2 )]
 background_color = Color( 0.0901961, 0.117647, 0.298039, 1 )
 
 [node name="Player" parent="." index="0" instance=ExtResource( 3 )]
-position = Vector2( 112, 0 )
+position = Vector2( 2736, -96 )
 camera_limit_left = 0
 camera_limit_right = 3648
 camera_limit_bottom = 300
@@ -22,5 +28,22 @@ tile_data = PoolIntArray( -2555683, 6, 0, -2490147, 6, 0, -2424611, 6, 0, -23590
 tile_data = PoolIntArray( -917301, 6, 0, -917297, 7, 0, -917295, 7, 0, -917293, 7, 0, -917291, 7, 0, -917289, 8, 0, -786318, 1, 0, -786302, 1, 0, -786279, 1, 0, -786228, 9, 0, -786227, 11, 0, -786221, 11, 0, -786215, 10, 0, -786211, 1, 0, -786203, 1, 0, -786195, 1, 0, -720691, 12, 0, -720689, 14, 0, -720682, 14, 0, -655217, 0, 0, -655152, 16, 0, -655151, 16, 0, -655145, 16, 0, -655144, 16, 0, -589629, 4, 0, -589626, 4, 0, -589623, 4, 0, -589617, 4, 0, -589614, 4, 0, -589611, 4, 0, -589608, 4, 0, -524095, 6, 0, -524091, 7, 0, -524089, 7, 0, -524087, 7, 0, -524085, 7, 0, -524083, 7, 0, -524081, 7, 0, -524079, 7, 0, -524077, 7, 0, -524075, 7, 0, -524073, 7, 0, -524071, 8, 0, -393022, 9, 0, -393021, 11, 0, -393015, 11, 0, -393009, 11, 0, -393003, 11, 0, -392997, 10, 0, -327485, 12, 0, -327482, 15, 0, -327479, 15, 0, -327476, 15, 0, -327473, 15, 0, -327470, 15, 0, -327467, 15, 0, -327464, 15, 0, -261945, 16, 0, -261942, 16, 0, -261939, 16, 0, -261936, 16, 0, -261933, 16, 0, -261930, 16, 0, -261927, 16, 0, -196426, 4, 0, -196423, 4, 0, -196420, 4, 0 )
 
 [node name="Sign" parent="Interactables" index="0" instance=ExtResource( 4 )]
-position = Vector2( 2824, -40 )
-sign_text = "The Lodge"
+position = Vector2( 2888, -40 )
+label_text = "The Witch's Lodge"
+
+[node name="Door" parent="Interactables" index="1" instance=ExtResource( 5 )]
+position = Vector2( 3137, -52 )
+z_index = -1
+label_text = "Press E to Enter House"
+level_path = "res://levels/intro/House.tscn"
+
+[node name="Sprite" parent="Interactables/Door" index="0"]
+texture = SubResource( 1 )
+
+[node name="Door2" parent="Interactables" index="2" instance=ExtResource( 5 )]
+position = Vector2( 3297, -148 )
+z_index = -1
+label_text = "This door is locked..."
+locked = true
+
+[editable path="Interactables/Door"]

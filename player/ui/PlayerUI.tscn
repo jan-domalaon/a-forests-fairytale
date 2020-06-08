@@ -21,5 +21,5 @@ __meta__ = {
 [node name="PlayerHealthBar" parent="MarginContainer" instance=ExtResource( 1 )]
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 1260.0
-margin_bottom = 700.0
+margin_right = 1900.0
+margin_bottom = 1060.0

@@ -1,51 +1,21 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://levels/interactables/generic_interactable/GenericInteractable.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/interactables/sign/sign.png" type="Texture" id=2]
-[ext_resource path="res://levels/interactables/sign/Sign.gd" type="Script" id=3]
-[ext_resource path="res://global_assets/potato_font.tres" type="DynamicFont" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "type_text"
-tracks/0/type = "value"
-tracks/0/path = NodePath("Label:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 0.5 ),
-"update": 0,
-"values": [ "", "This is some text for this sign" ]
-}
-
 [node name="Sign" instance=ExtResource( 1 )]
 z_index = 1
-script = ExtResource( 3 )
 
-[node name="Sprite" parent="." index="0"]
-texture = ExtResource( 2 )
-
-[node name="CollisionPolygon2D" parent="." index="1"]
+[node name="CollisionPolygon2D" parent="." index="0"]
 shape = SubResource( 1 )
 
-[node name="Label" type="Label" parent="." index="2"]
-margin_left = -32.0
-margin_top = -64.0
-margin_right = 32.0
-margin_bottom = -18.0
-custom_fonts/font = ExtResource( 4 )
-align = 1
+[node name="Label" parent="." index="1"]
+text = "
+"
 autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
-anims/type_text = SubResource( 2 )
-[connection signal="body_entered" from="." to="." method="_on_Sign_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_Sign_body_exited"]
+[node name="Sprite" type="Sprite" parent="." index="3"]
+texture = ExtResource( 2 )
