@@ -12,10 +12,11 @@ atlas = ExtResource( 6 )
 region = Rect2( 32, 0, 32, 41 )
 
 [node name="LevelIntro" instance=ExtResource( 2 )]
+hide_ui = true
 background_color = Color( 0.0901961, 0.117647, 0.298039, 1 )
 
 [node name="Player" parent="." index="0" instance=ExtResource( 3 )]
-position = Vector2( 2736, -96 )
+position = Vector2( 168, 141 )
 camera_limit_left = 0
 camera_limit_right = 3648
 camera_limit_bottom = 300
@@ -33,7 +34,6 @@ label_text = "The Witch's Lodge"
 
 [node name="Door" parent="Interactables" index="1" instance=ExtResource( 5 )]
 position = Vector2( 3137, -52 )
-z_index = -1
 label_text = "Press E to Enter House"
 level_path = "res://levels/intro/House.tscn"
 
@@ -42,7 +42,6 @@ texture = SubResource( 1 )
 
 [node name="Door2" parent="Interactables" index="2" instance=ExtResource( 5 )]
 position = Vector2( 3297, -148 )
-z_index = -1
 label_text = "This door is locked..."
 locked = true
 

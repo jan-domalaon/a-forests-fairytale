@@ -12,11 +12,17 @@ export (PackedScene) var Projectile
 var is_casting = false
 var is_level_changing = false setget set_is_level_changing
 
+var collected_items = {"white": false, 
+						"red": false, 
+						"blue": false}
 
 func _ready():
 	# Set camera limits
 	set_camera_limits(camera_limit_left, camera_limit_top,
 						camera_limit_right, camera_limit_bottom)
+	
+	# Connect to toggle to hide UI if level needs
+	get_parent().connect("hide_ui", self, "on_hide_ui")
 
 
 func _physics_process(_delta):
@@ -104,3 +110,7 @@ func set_camera_limits(left, top, right, bottom):
 
 func set_is_level_changing(new_value):
 	is_level_changing = new_value
+
+
+func on_hide_ui():
+	$PlayerUI/MarginContainer.hide()
