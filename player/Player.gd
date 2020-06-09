@@ -15,10 +15,11 @@ var is_casting = false
 var is_level_changing = false setget set_is_level_changing
 var is_jumping = false
 var is_grounded = false
-
 var collected_items = {"white": false, 
 						"red": false, 
 						"blue": false}
+
+signal grounded_update(is_grounded)
 
 func _ready():
 	# Set camera limits
@@ -34,8 +35,8 @@ func _physics_process(_delta):
 	if not (is_dead or is_level_changing):
 		handle_input_player()
 		handle_move_animations()
-		check_is_grounded()
 		check_is_jumping()
+		handle_camera_movement_and_grounded()
 
 
 func handle_input_player():
@@ -139,3 +140,9 @@ func check_is_jumping():
 func check_is_on_platform():
 	var is_on_platform = $PlatformDetector.is_colliding()
 
+
+func handle_camera_movement_and_grounded():
+	var was_grounded = is_grounded
+	check_is_grounded()
+	if ((was_grounded == null) or (is_grounded != was_grounded)):
+		emit_signal("grounded_update", is_grounded)

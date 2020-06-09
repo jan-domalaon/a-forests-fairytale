@@ -4,7 +4,6 @@ extends Node
 export (bool) var debug_mode = false
 export (bool) var beginning_level = false
 export (bool) var terminal_level = false
-export (bool) var toggle_hud_for_player = false
 export (bool) var level_timer = false
 export (bool) var hide_ui = false
 export (Color) var background_color

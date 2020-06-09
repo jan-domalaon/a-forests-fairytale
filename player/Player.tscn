@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/player_sprite_frames.tres" type="SpriteFrames" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://projectile/GenericProjectile.tscn" type="PackedScene" id=7]
 [ext_resource path="res://player/ui/PlayerUI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://player/PlayerFSM.gd" type="Script" id=9]
+[ext_resource path="res://player/PlayerCamera.gd" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 18 )
@@ -116,7 +117,7 @@ extents = Vector2( 10, 18 )
 ] instance=ExtResource( 1 )]
 collision_mask = 3
 script = ExtResource( 6 )
-jump_speed = -500
+jump_speed = -600
 gravity = 1500
 friction = 1.0
 max_health = 3
@@ -126,7 +127,7 @@ Projectile = ExtResource( 7 )
 [node name="AnimatedSprite" parent="." index="0"]
 frames = ExtResource( 2 )
 animation = "Idle"
-frame = 9
+frame = 7
 
 [node name="CollisionShape2D" parent="." index="1" groups=[
 "Player",
@@ -138,10 +139,15 @@ current = true
 zoom = Vector2( 0.5, 0.5 )
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
+smoothing_enabled = true
 drag_margin_left = 0.1
+drag_margin_top = 0.5
 drag_margin_right = 0.1
 drag_margin_bottom = 0.1
 editor_draw_drag_margin = true
+script = ExtResource( 10 )
+
+[node name="ShiftTween" type="Tween" parent="Camera2D" index="0"]
 
 [node name="AnimationTree" parent="." index="3"]
 tree_root = ExtResource( 5 )
@@ -174,3 +180,4 @@ shape = SubResource( 5 )
 enabled = true
 cast_to = Vector2( 0, 20 )
 collision_mask = 2
+[connection signal="grounded_update" from="." to="Camera2D" method="_on_Player_grounded_update"]
