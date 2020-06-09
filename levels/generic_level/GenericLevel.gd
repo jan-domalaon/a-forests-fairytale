@@ -8,6 +8,9 @@ export (bool) var toggle_hud_for_player = false
 export (bool) var level_timer = false
 export (bool) var hide_ui = false
 export (Color) var background_color
+export (Dictionary) var level_collectibles = {"white": false,
+											"blue": false,
+											"red": false}
 
 
 signal hide_ui

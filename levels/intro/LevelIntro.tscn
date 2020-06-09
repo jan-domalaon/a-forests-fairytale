@@ -16,7 +16,7 @@ hide_ui = true
 background_color = Color( 0.0901961, 0.117647, 0.298039, 1 )
 
 [node name="Player" parent="." index="0" instance=ExtResource( 3 )]
-position = Vector2( 168, 141 )
+position = Vector2( 2848, -68 )
 camera_limit_left = 0
 camera_limit_right = 3648
 camera_limit_bottom = 300
@@ -30,7 +30,7 @@ tile_data = PoolIntArray( -917301, 6, 0, -917297, 7, 0, -917295, 7, 0, -917293, 
 
 [node name="Sign" parent="Interactables" index="0" instance=ExtResource( 4 )]
 position = Vector2( 2888, -40 )
-label_text = "The Witch's Lodge"
+label_text = "The Dream Gardener's Home"
 
 [node name="Door" parent="Interactables" index="1" instance=ExtResource( 5 )]
 position = Vector2( 3137, -52 )

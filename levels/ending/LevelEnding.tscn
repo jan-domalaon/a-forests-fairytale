@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://levels/tileset/terrain_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://levels/generic_level/GenericLevel.tscn" type="PackedScene" id=2]
@@ -13,14 +13,21 @@
 atlas = ExtResource( 6 )
 region = Rect2( 32, 0, 32, 41 )
 
+[sub_resource type="Environment" id=2]
+background_mode = 4
+glow_enabled = true
+glow_intensity = 1.0
+glow_strength = 1.2
+
 [node name="LevelEnding" instance=ExtResource( 2 )]
+hide_ui = true
 background_color = Color( 0.223529, 0.654902, 0.823529, 1 )
 
 [node name="Player" parent="." index="0" instance=ExtResource( 3 )]
 position = Vector2( 3136, -48 )
 camera_limit_left = 2432
 camera_limit_right = 3648
-camera_limit_bottom = 300
+camera_limit_bottom = 150
 
 [node name="TileMap" parent="." index="1"]
 tile_set = ExtResource( 1 )
@@ -31,7 +38,7 @@ tile_data = PoolIntArray( -917301, 6, 0, -917297, 7, 0, -917295, 7, 0, -917293, 
 
 [node name="Sign" parent="Interactables" index="0" instance=ExtResource( 4 )]
 position = Vector2( 2888, -40 )
-label_text = "The Witch's Lodge"
+label_text = "The Dream Weaver's Lodge"
 
 [node name="Door" parent="Interactables" index="1" instance=ExtResource( 5 )]
 position = Vector2( 3137, -52 )
@@ -92,5 +99,8 @@ scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="WorldEnvironment" parent="." index="10"]
+environment = SubResource( 2 )
 
 [editable path="Interactables/Door"]

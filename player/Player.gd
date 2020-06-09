@@ -1,6 +1,8 @@
 extends "res://character/Character.gd"
 
 
+const DROP_COLLISION_BIT = 1
+
 # Limits of camera
 export (int) var camera_limit_left 			= -10000000
 export (int) var camera_limit_top 			= -10000000
@@ -11,6 +13,8 @@ export (int) var camera_limit_bottom 		= 10000000
 export (PackedScene) var Projectile
 var is_casting = false
 var is_level_changing = false setget set_is_level_changing
+var is_jumping = false
+var is_grounded = false
 
 var collected_items = {"white": false, 
 						"red": false, 
@@ -30,6 +34,8 @@ func _physics_process(_delta):
 	if not (is_dead or is_level_changing):
 		handle_input_player()
 		handle_move_animations()
+		check_is_grounded()
+		check_is_jumping()
 
 
 func handle_input_player():
@@ -47,7 +53,8 @@ func handle_input_player():
 		velocity.x = lerp(velocity.x, 0, friction)
 
 	if Input.is_action_just_pressed("jump"):
-		if is_on_floor():
+		if is_grounded:
+			is_jumping = true
 			handle_jump_animation()
 			velocity.y = jump_speed
 
@@ -62,6 +69,10 @@ func handle_input_player():
 			if interactable.is_in_group("LevelChange"):
 				interactable.change_level()
 		print(interactables)
+	
+	if Input.is_action_pressed("move_down"):
+		# Handle dropping from platform logic
+		set_collision_mask_bit(DROP_COLLISION_BIT, false)
 
 
 func handle_move_animations():
@@ -114,3 +125,17 @@ func set_is_level_changing(new_value):
 
 func on_hide_ui():
 	$PlayerUI/MarginContainer.hide()
+
+
+func check_is_grounded():
+	is_grounded = not is_jumping and is_on_floor()
+
+
+func check_is_jumping():
+	if is_jumping and velocity.y >= 0:
+		is_jumping = false
+
+
+func check_is_on_platform():
+	var is_on_platform = $PlatformDetector.is_colliding()
+

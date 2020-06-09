@@ -193,3 +193,4 @@ position = Vector2( 88, 56 )
 
 [node name="Bed" parent="." index="8" instance=ExtResource( 4 )]
 position = Vector2( 522, -46 )
+level_path = "res://levels/level_1/LevelOne.tscn"

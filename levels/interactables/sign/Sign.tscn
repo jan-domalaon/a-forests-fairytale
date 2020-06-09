@@ -15,7 +15,6 @@ shape = SubResource( 1 )
 [node name="Label" parent="." index="1"]
 text = "
 "
-autowrap = true
 
 [node name="Sprite" type="Sprite" parent="." index="3"]
 texture = ExtResource( 2 )

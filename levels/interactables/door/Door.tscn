@@ -4,11 +4,11 @@
 [ext_resource path="res://levels/interactables/level_change/LevelChange.tscn" type="PackedScene" id=2]
 [ext_resource path="res://levels/interactables/door/Door.gd" type="Script" id=3]
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
 region = Rect2( 32, 0, 32, 41 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 24, 20 )
 
 [node name="Door" groups=[
@@ -18,13 +18,11 @@ z_index = -1
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
-texture = SubResource( 2 )
+texture = SubResource( 1 )
 
 [node name="CollisionPolygon2D" parent="." index="1"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
-[node name="Label" parent="." index="3"]
-margin_left = -40.0
-margin_right = 40.0
+[node name="Label" parent="." index="2"]
 text = "test
 "
