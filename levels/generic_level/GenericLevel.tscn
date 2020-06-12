@@ -41,3 +41,5 @@ format = 1
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 
 [node name="LevelTimer" type="Timer" parent="."]
+one_shot = true
+[connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]

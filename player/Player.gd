@@ -18,6 +18,7 @@ var is_grounded = false
 var collected_items = {"white": false, 
 						"red": false, 
 						"blue": false}
+var game_over = false setget set_game_over
 
 signal grounded_update(is_grounded)
 
@@ -35,7 +36,7 @@ func _ready():
 
 func _physics_process(_delta):
 	# Only allow input if the player is still alive
-	if not (is_dead or is_level_changing):
+	if (not (is_dead or is_level_changing)) and (not game_over):
 		handle_input_player()
 		handle_move_animations()
 		check_is_jumping()
@@ -94,6 +95,11 @@ func handle_death_animation():
 	anim_state_machine.travel("death_anim")
 
 
+func handle_game_over():
+	handle_death_animation()
+	print("game over!")
+
+
 func spell_cast():
 	is_casting = true
 	anim_state_machine.travel("player_cast")
@@ -121,6 +127,10 @@ func done_casting():
 	is_casting = false
 
 
+func set_game_over(value):
+	game_over = value
+
+
 func set_camera_limits(left, top, right, bottom):
 	$Camera2D.limit_left 	= left
 	$Camera2D.limit_top 	= top
@@ -137,7 +147,10 @@ func on_hide_ui():
 
 
 func on_update_time(time_left):
-	$PlayerUI/MarginContainer/Timer/MarginContainer/VBoxContainer/TimerLabel.text = str(time_left)
+	if time_left > 10:
+		$PlayerUI/MarginContainer/Timer/MarginContainer/VBoxContainer/TimerLabel.bbcode_text = "[right]" + str(time_left) + "[/right]"
+	else:
+		$PlayerUI/MarginContainer/Timer/MarginContainer/VBoxContainer/TimerLabel.bbcode_text = "[right][color=red][shake rate=10 level=10]" + str(time_left) + "[/shake][/color][/right]"
 
 
 func check_is_grounded():
@@ -158,3 +171,5 @@ func handle_camera_movement_and_grounded():
 	check_is_grounded()
 	if ((was_grounded == null) or (is_grounded != was_grounded)):
 		emit_signal("grounded_update", is_grounded)
+
+

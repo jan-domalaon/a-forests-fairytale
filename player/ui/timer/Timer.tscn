@@ -10,9 +10,8 @@ extra_spacing_bottom = -20
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 100
-extra_spacing_top = -30
-extra_spacing_bottom = -5
+size = 72
+extra_spacing_top = -10
 font_data = ExtResource( 2 )
 
 [node name="Timer" type="Control"]
@@ -63,10 +62,13 @@ text = "TIME LEFT
 "
 align = 2
 
-[node name="TimerLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="TimerLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 margin_top = 29.0
 margin_right = 236.0
-margin_bottom = 74.0
-custom_fonts/font = SubResource( 2 )
-text = "00:00"
-align = 2
+margin_bottom = 79.0
+rect_min_size = Vector2( 0, 50 )
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "sadsad"
+text = "sadsad"
+scroll_active = false

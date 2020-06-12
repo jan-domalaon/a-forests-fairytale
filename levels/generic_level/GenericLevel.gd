@@ -33,6 +33,7 @@ func _ready():
 		print("timer started!")
 		$StartTimer/LevelTimerTrigger.connect("start_level_timer", self, "on_start_level_timer")
 
+
 func _process(delta):
 	# Show timer time on player's UI
 	if level_timer_on:
@@ -42,3 +43,10 @@ func _process(delta):
 func on_start_level_timer():
 	level_timer_on = true
 	$LevelTimer.start()
+
+
+func _on_LevelTimer_timeout():
+	# Trigger game over state for player
+	if has_node("Player"):
+		$Player.set_game_over(true)
+		$Player.handle_game_over()
