@@ -9,7 +9,7 @@
 extents = Vector2( 32, 24 )
 
 [node name="GenericLevel" instance=ExtResource( 2 )]
-level_timer_duration = 9
+level_timer_duration = 60
 background_color = Color( 0.619608, 0.67451, 0.780392, 1 )
 
 [node name="TileMap" parent="." index="0"]
