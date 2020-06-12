@@ -1,21 +1,19 @@
 [gd_resource type="AnimationNodeStateMachine" load_steps=20 format=2]
 
-[sub_resource type="AnimationNodeAnimation" id=15]
+[sub_resource type="AnimationNodeAnimation" id=1]
 animation = "death_anim"
 
-[sub_resource type="AnimationNodeAnimation" id=1]
+[sub_resource type="AnimationNodeAnimation" id=2]
 animation = "player_cast"
 
-[sub_resource type="AnimationNodeAnimation" id=2]
+[sub_resource type="AnimationNodeAnimation" id=3]
 animation = "player_idle"
 
-[sub_resource type="AnimationNodeAnimation" id=3]
+[sub_resource type="AnimationNodeAnimation" id=4]
 animation = "player_jump"
 
-[sub_resource type="AnimationNodeAnimation" id=4]
+[sub_resource type="AnimationNodeAnimation" id=5]
 animation = "player_run"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=5]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=6]
 
@@ -28,14 +26,16 @@ animation = "player_run"
 [sub_resource type="AnimationNodeStateMachineTransition" id=10]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=11]
-switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=12]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=13]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=14]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=16]
 
@@ -46,16 +46,16 @@ auto_advance = true
 [sub_resource type="AnimationNodeStateMachineTransition" id=19]
 
 [resource]
-states/death_anim/node = SubResource( 15 )
+states/death_anim/node = SubResource( 1 )
 states/death_anim/position = Vector2( 515, 375 )
-states/player_cast/node = SubResource( 1 )
+states/player_cast/node = SubResource( 2 )
 states/player_cast/position = Vector2( 686, 231 )
-states/player_idle/node = SubResource( 2 )
+states/player_idle/node = SubResource( 3 )
 states/player_idle/position = Vector2( 366, 226 )
-states/player_jump/node = SubResource( 3 )
+states/player_jump/node = SubResource( 4 )
 states/player_jump/position = Vector2( 366, 27 )
-states/player_run/node = SubResource( 4 )
+states/player_run/node = SubResource( 5 )
 states/player_run/position = Vector2( 677, 21 )
-transitions = [ "player_idle", "player_jump", SubResource( 5 ), "player_idle", "player_run", SubResource( 6 ), "player_run", "player_idle", SubResource( 7 ), "player_run", "player_jump", SubResource( 8 ), "player_jump", "player_idle", SubResource( 9 ), "player_jump", "player_cast", SubResource( 10 ), "player_cast", "player_idle", SubResource( 11 ), "player_idle", "player_cast", SubResource( 12 ), "player_run", "player_cast", SubResource( 13 ), "player_cast", "player_run", SubResource( 14 ), "player_idle", "death_anim", SubResource( 16 ), "player_cast", "death_anim", SubResource( 17 ), "player_run", "death_anim", SubResource( 18 ), "player_jump", "death_anim", SubResource( 19 ) ]
+transitions = [ "player_idle", "player_jump", SubResource( 6 ), "player_idle", "player_run", SubResource( 7 ), "player_run", "player_idle", SubResource( 8 ), "player_run", "player_jump", SubResource( 9 ), "player_jump", "player_idle", SubResource( 10 ), "player_jump", "player_cast", SubResource( 11 ), "player_cast", "player_idle", SubResource( 12 ), "player_idle", "player_cast", SubResource( 13 ), "player_run", "player_cast", SubResource( 14 ), "player_cast", "player_run", SubResource( 15 ), "player_idle", "death_anim", SubResource( 16 ), "player_cast", "death_anim", SubResource( 17 ), "player_run", "death_anim", SubResource( 18 ), "player_jump", "death_anim", SubResource( 19 ) ]
 start_node = "player_idle"
 graph_offset = Vector2( 151, -12 )

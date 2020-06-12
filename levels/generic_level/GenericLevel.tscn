@@ -36,4 +36,8 @@ format = 1
 
 [node name="LevelChange" type="Node" parent="."]
 
+[node name="StartTimer" type="Node" parent="."]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="LevelTimer" type="Timer" parent="."]

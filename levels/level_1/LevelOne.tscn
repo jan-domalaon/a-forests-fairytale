@@ -18,6 +18,7 @@ glow_bicubic_upscale = true
 adjustment_enabled = true
 
 [node name="LevelOne" instance=ExtResource( 1 )]
+hide_ui = true
 background_color = Color( 0.619608, 0.67451, 0.780392, 1 )
 
 [node name="TileMap" parent="." index="0"]
@@ -41,7 +42,7 @@ label_text = "Something must be wrong in their dreams"
 
 [node name="Sign4" parent="Interactables/Signs" index="3" instance=ExtResource( 4 )]
 position = Vector2( 1104, 40 )
-label_text = "I must enter their dreams and make them right"
+label_text = "I must enter their dreams and set them in order"
 
 [node name="Player" parent="." index="7" instance=ExtResource( 3 )]
 position = Vector2( 32, -8 )
@@ -52,11 +53,15 @@ camera_limit_bottom = 256
 [node name="Door" parent="LevelChange" index="0" instance=ExtResource( 5 )]
 position = Vector2( 2104, 76 )
 label_text = "Enter a New Dream"
+level_path = "res://levels/level_2/LevelTwo.tscn"
 
 [node name="Sprite" parent="LevelChange/Door" index="0"]
 material = SubResource( 1 )
 
-[node name="WorldEnvironment" parent="." index="9"]
+[node name="WorldEnvironment" parent="." index="10"]
 environment = SubResource( 2 )
+
+[node name="LevelTimer" parent="." index="11"]
+one_shot = true
 
 [editable path="LevelChange/Door"]

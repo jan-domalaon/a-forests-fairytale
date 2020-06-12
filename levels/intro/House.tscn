@@ -180,6 +180,7 @@ polygon = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 6/z_index = 0
 
 [node name="House" instance=ExtResource( 1 )]
+hide_ui = true
 
 [node name="TileMap" parent="." index="0"]
 tile_set = SubResource( 9 )

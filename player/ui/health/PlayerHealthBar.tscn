@@ -26,26 +26,26 @@ stretch_mode = 5
 [node name="CollectibleWhite" type="TextureRect" parent="."]
 modulate = Color( 0, 0, 0, 1 )
 margin_left = 310.0
-margin_right = 358.0
+margin_right = 346.0
 margin_bottom = 80.0
-rect_min_size = Vector2( 48, 0 )
+rect_min_size = Vector2( 36, 60 )
 texture = ExtResource( 3 )
 stretch_mode = 5
 
 [node name="CollectibleRed" type="TextureRect" parent="."]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 408.0
-margin_right = 456.0
+margin_left = 396.0
+margin_right = 432.0
 margin_bottom = 80.0
-rect_min_size = Vector2( 48, 0 )
+rect_min_size = Vector2( 36, 60 )
 texture = ExtResource( 5 )
 stretch_mode = 5
 
 [node name="CollectibleBlue" type="TextureRect" parent="."]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 506.0
-margin_right = 554.0
+margin_left = 482.0
+margin_right = 518.0
 margin_bottom = 80.0
-rect_min_size = Vector2( 48, 0 )
+rect_min_size = Vector2( 36, 60 )
 texture = ExtResource( 4 )
 stretch_mode = 5

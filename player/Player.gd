@@ -26,8 +26,11 @@ func _ready():
 	set_camera_limits(camera_limit_left, camera_limit_top,
 						camera_limit_right, camera_limit_bottom)
 	
-	# Connect to toggle to hide UI if level needs
+	# Connect to toggle hide UI if level needs
 	get_parent().connect("hide_ui", self, "on_hide_ui")
+	
+	# Connect to timer to update UI
+	get_parent().connect("update_time", self, "on_update_time")
 
 
 func _physics_process(_delta):
@@ -113,6 +116,7 @@ func flip_player_left(is_left):
 	$SpellMuzzle.set_position(Vector2(-16, 0)) if is_left else $SpellMuzzle.set_position(Vector2(16, 0))
 	$AnimatedSprite.set_flip_h(is_left)
 
+
 func done_casting():
 	is_casting = false
 
@@ -130,6 +134,10 @@ func set_is_level_changing(new_value):
 
 func on_hide_ui():
 	$PlayerUI/MarginContainer.hide()
+
+
+func on_update_time(time_left):
+	$PlayerUI/MarginContainer/Timer/MarginContainer/VBoxContainer/TimerLabel.text = str(time_left)
 
 
 func check_is_grounded():

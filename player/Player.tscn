@@ -125,12 +125,9 @@ health = 3
 Projectile = ExtResource( 7 )
 
 [node name="AnimatedSprite" parent="." index="0"]
-modulate = Color( 1, 1, 1, 1 )
-position = Vector2( 0, 0 )
-rotation = 0.0
 frames = ExtResource( 2 )
 animation = "Idle"
-frame = 8
+frame = 6
 
 [node name="CollisionShape2D" parent="." index="1" groups=[
 "Player",
