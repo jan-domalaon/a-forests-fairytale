@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://player/ui/health/PlayerHealthBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/ui/PlayerUI.gd" type="Script" id=2]
+[ext_resource path="res://player/ui/pause/PauseMenu.tscn" type="PackedScene" id=3]
 
 [node name="PlayerUI" type="CanvasLayer"]
 script = ExtResource( 2 )
@@ -23,3 +24,5 @@ margin_left = 20.0
 margin_top = 20.0
 margin_right = 1900.0
 margin_bottom = 1060.0
+
+[node name="PauseMenu" parent="." instance=ExtResource( 3 )]

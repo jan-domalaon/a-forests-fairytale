@@ -87,6 +87,10 @@ func handle_jump_animation():
 	anim_state_machine.travel("player_jump")
 
 
+func handle_death_animation():
+	anim_state_machine.travel("death_anim")
+
+
 func spell_cast():
 	is_casting = true
 	anim_state_machine.travel("player_cast")
